@@ -1,12 +1,15 @@
 /**
   ******************************************************************************
-  * @file    stm32f4xx_hal_dma_ex.h
-  * @author  MCD Application Team
-  * @brief   Header file of DMA HAL extension module.
+  * @file    stm32_assert.h
+  * @brief   STM32 assert file.
   ******************************************************************************
-  * @attention
+   ** This notice applies to any and all portions of this file
+  * that are not between comment pairs USER CODE BEGIN and
+  * USER CODE END. Other portions of this file, whether 
+  * inserted by the user or by software development tools
+  * are owned by their respective copyright owners.
   *
-  * <h2><center>&copy; COPYRIGHT(c) 2017 STMicroelectronics</center></h2>
+  * COPYRIGHT(c) 2019 STMicroelectronics
   *
   * Redistribution and use in source and binary forms, with or without modification,
   * are permitted provided that the following conditions are met:
@@ -34,87 +37,37 @@
   */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __STM32F4xx_HAL_DMA_EX_H
-#define __STM32F4xx_HAL_DMA_EX_H
+#ifndef __STM32_ASSERT_H
+#define __STM32_ASSERT_H
 
 #ifdef __cplusplus
  extern "C" {
 #endif
 
-/* Includes ------------------------------------------------------------------*/
-#include "stm32f4xx_hal_def.h"
-
-/** @addtogroup STM32F4xx_HAL_Driver
-  * @{
-  */
-
-/** @addtogroup DMAEx
-  * @{
-  */ 
-
 /* Exported types ------------------------------------------------------------*/
-/** @defgroup DMAEx_Exported_Types DMAEx Exported Types
-  * @brief DMAEx Exported types
-  * @{
-  */
-   
-/** 
-  * @brief  HAL DMA Memory definition  
-  */ 
-typedef enum
-{
-  MEMORY0      = 0x00U,    /*!< Memory 0     */
-  MEMORY1      = 0x01U     /*!< Memory 1     */
-}HAL_DMA_MemoryTypeDef;
-
+/* Exported constants --------------------------------------------------------*/
+/* Includes ------------------------------------------------------------------*/
+/* Exported macro ------------------------------------------------------------*/
+#ifdef  USE_FULL_ASSERT
 /**
-  * @}
+  * @brief  The assert_param macro is used for function's parameters check.
+  * @param  expr: If expr is false, it calls assert_failed function
+  *         which reports the name of the source file and the source
+  *         line number of the call that failed.
+  *         If expr is true, it returns no value.
+  * @retval None
   */
-
-/* Exported functions --------------------------------------------------------*/
-/** @defgroup DMAEx_Exported_Functions DMAEx Exported Functions
-  * @brief   DMAEx Exported functions
-  * @{
-  */
-
-/** @defgroup DMAEx_Exported_Functions_Group1 Extended features functions
-  * @brief   Extended features functions
-  * @{
-  */
-
-/* IO operation functions *******************************************************/
-HAL_StatusTypeDef HAL_DMAEx_MultiBufferStart(DMA_HandleTypeDef *hdma, uint32_t SrcAddress, uint32_t DstAddress, uint32_t SecondMemAddress, uint32_t DataLength);
-HAL_StatusTypeDef HAL_DMAEx_MultiBufferStart_IT(DMA_HandleTypeDef *hdma, uint32_t SrcAddress, uint32_t DstAddress, uint32_t SecondMemAddress, uint32_t DataLength);
-HAL_StatusTypeDef HAL_DMAEx_ChangeMemory(DMA_HandleTypeDef *hdma, uint32_t Address, HAL_DMA_MemoryTypeDef memory);
-
-/**
-  * @}
-  */
-/**
-  * @}
-  */
-         
-/* Private functions ---------------------------------------------------------*/
-/** @defgroup DMAEx_Private_Functions DMAEx Private Functions
-  * @brief DMAEx Private functions
-  * @{
-  */
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
+  #define assert_param(expr) ((expr) ? (void)0U : assert_failed((uint8_t *)__FILE__, __LINE__))
+/* Exported functions ------------------------------------------------------- */
+  void assert_failed(uint8_t* file, uint32_t line);
+#else
+  #define assert_param(expr) ((void)0U)
+#endif /* USE_FULL_ASSERT */
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /*__STM32F4xx_HAL_DMA_EX_H*/
+#endif /* __STM32_ASSERT_H */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -1,12 +1,16 @@
 /**
   ******************************************************************************
-  * @file    stm32f4xx_hal_flash_ramfunc.h
-  * @author  MCD Application Team
-  * @brief   Header file of FLASH RAMFUNC driver.
+  * File Name          : gpio.h
+  * Description        : This file contains all the functions prototypes for 
+  *                      the gpio  
   ******************************************************************************
-  * @attention
+  ** This notice applies to any and all portions of this file
+  * that are not between comment pairs USER CODE BEGIN and
+  * USER CODE END. Other portions of this file, whether 
+  * inserted by the user or by software development tools
+  * are owned by their respective copyright owners.
   *
-  * <h2><center>&copy; COPYRIGHT(c) 2017 STMicroelectronics</center></h2>
+  * COPYRIGHT(c) 2019 STMicroelectronics
   *
   * Redistribution and use in source and binary forms, with or without modification,
   * are permitted provided that the following conditions are met:
@@ -31,65 +35,47 @@
   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */ 
+  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __STM32F4xx_FLASH_RAMFUNC_H
-#define __STM32F4xx_FLASH_RAMFUNC_H
-
+#ifndef __gpio_H
+#define __gpio_H
 #ifdef __cplusplus
  extern "C" {
 #endif
-#if defined(STM32F410Tx) || defined(STM32F410Cx) || defined(STM32F410Rx) || defined(STM32F411xE) || defined(STM32F446xx) || defined(STM32F412Zx) ||\
-    defined(STM32F412Vx) || defined(STM32F412Rx) || defined(STM32F412Cx)  
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f4xx_hal_def.h"
+#include "stm32f4xx.h"
+#include "stm32f4xx_ll_system.h"
+#include "stm32f4xx_ll_gpio.h"
+#include "stm32f4xx_ll_exti.h"
+#include "main.h"
 
-/** @addtogroup STM32F4xx_HAL_Driver
-  * @{
-  */
+/* USER CODE BEGIN Includes */
 
-/** @addtogroup FLASH_RAMFUNC
-  * @{
-  */
+/* USER CODE END Includes */
 
-/* Exported types ------------------------------------------------------------*/
-/* Exported macro ------------------------------------------------------------*/
-/* Exported functions --------------------------------------------------------*/
-/** @addtogroup FLASH_RAMFUNC_Exported_Functions
-  * @{
-  */
+/* USER CODE BEGIN Private defines */
 
-/** @addtogroup FLASH_RAMFUNC_Exported_Functions_Group1
-  * @{
-  */   
-__RAM_FUNC HAL_StatusTypeDef HAL_FLASHEx_StopFlashInterfaceClk(void);
-__RAM_FUNC HAL_StatusTypeDef HAL_FLASHEx_StartFlashInterfaceClk(void);
-__RAM_FUNC HAL_StatusTypeDef HAL_FLASHEx_EnableFlashSleepMode(void);
-__RAM_FUNC HAL_StatusTypeDef HAL_FLASHEx_DisableFlashSleepMode(void);
-/**
-  * @}
-  */ 
+/* USER CODE END Private defines */
 
-/**
-  * @}
-  */
+void MX_GPIO_Init(void);
 
-/**
-  * @}
-  */ 
+/* USER CODE BEGIN Prototypes */
 
-/**
-  * @}
-  */
+/* USER CODE END Prototypes */
 
-#endif /* STM32F410xx || STM32F411xE || STM32F446xx || STM32F412Zx || STM32F412Vx || STM32F412Rx || STM32F412Cx */  
 #ifdef __cplusplus
 }
 #endif
+#endif /*__ pinoutConfig_H */
 
+/**
+  * @}
+  */
 
-#endif /* __STM32F4xx_FLASH_RAMFUNC_H */
+/**
+  * @}
+  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
